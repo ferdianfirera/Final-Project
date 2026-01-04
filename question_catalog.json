@@ -1,0 +1,669 @@
+{
+    "questions": [
+        {
+            "id": "rev_001",
+            "text": "Berapa total revenue bulan ini?",
+            "category": "revenue",
+            "subcategory": "monthly_metrics",
+            "context_triggers": [
+                "revenue",
+                "sales",
+                "penjualan",
+                "pendapatan"
+            ],
+            "follow_up_to": [],
+            "priority": 10,
+            "template_vars": []
+        },
+        {
+            "id": "rev_002",
+            "text": "Apa tren penjualan 6 bulan terakhir?",
+            "category": "revenue",
+            "subcategory": "trend_analysis",
+            "context_triggers": [
+                "revenue",
+                "sales",
+                "trend",
+                "tren"
+            ],
+            "follow_up_to": [
+                "rev_001"
+            ],
+            "priority": 9,
+            "template_vars": []
+        },
+        {
+            "id": "rev_003",
+            "text": "Kategori produk mana yang paling menguntungkan?",
+            "category": "revenue",
+            "subcategory": "product_performance",
+            "context_triggers": [
+                "revenue",
+                "kategori",
+                "produk",
+                "menguntungkan"
+            ],
+            "follow_up_to": [
+                "rev_001",
+                "rev_002"
+            ],
+            "priority": 8,
+            "template_vars": []
+        },
+        {
+            "id": "rev_004",
+            "text": "Bagaimana performa penjualan per region?",
+            "category": "revenue",
+            "subcategory": "regional_analysis",
+            "context_triggers": [
+                "revenue",
+                "region",
+                "state",
+                "kota"
+            ],
+            "follow_up_to": [
+                "rev_001"
+            ],
+            "priority": 8,
+            "template_vars": []
+        },
+        {
+            "id": "rev_005",
+            "text": "Berapa average order value (AOV) saat ini?",
+            "category": "revenue",
+            "subcategory": "metrics",
+            "context_triggers": [
+                "revenue",
+                "average",
+                "rata-rata",
+                "order"
+            ],
+            "follow_up_to": [
+                "rev_001"
+            ],
+            "priority": 7,
+            "template_vars": []
+        },
+        {
+            "id": "loc_001",
+            "text": "Bagaimana tren pesanan bulanan di {location}?",
+            "category": "location",
+            "subcategory": "temporal_analysis",
+            "context_triggers": [
+                "location_detected",
+                "bulanan",
+                "monthly"
+            ],
+            "follow_up_to": [],
+            "priority": 9,
+            "template_vars": [
+                "location"
+            ]
+        },
+        {
+            "id": "loc_002",
+            "text": "Berapa revenue dari {location} vs São Paulo?",
+            "category": "location",
+            "subcategory": "comparison",
+            "context_triggers": [
+                "location_detected",
+                "revenue",
+                "comparison"
+            ],
+            "follow_up_to": [
+                "loc_001"
+            ],
+            "priority": 8,
+            "template_vars": [
+                "location"
+            ]
+        },
+        {
+            "id": "loc_003",
+            "text": "Kategori produk apa yang paling laku di {location}?",
+            "category": "location",
+            "subcategory": "product_analysis",
+            "context_triggers": [
+                "location_detected",
+                "produk",
+                "kategori"
+            ],
+            "follow_up_to": [
+                "loc_001"
+            ],
+            "priority": 8,
+            "template_vars": [
+                "location"
+            ]
+        },
+        {
+            "id": "loc_004",
+            "text": "Berapa rata-rata review score dari customer {location}?",
+            "category": "location",
+            "subcategory": "satisfaction",
+            "context_triggers": [
+                "location_detected",
+                "review",
+                "score"
+            ],
+            "follow_up_to": [
+                "loc_001"
+            ],
+            "priority": 7,
+            "template_vars": [
+                "location"
+            ]
+        },
+        {
+            "id": "loc_005",
+            "text": "Siapa top 5 seller di {location}?",
+            "category": "location",
+            "subcategory": "seller_analysis",
+            "context_triggers": [
+                "location_detected",
+                "seller",
+                "penjual"
+            ],
+            "follow_up_to": [
+                "loc_001"
+            ],
+            "priority": 7,
+            "template_vars": [
+                "location"
+            ]
+        },
+        {
+            "id": "loc_006",
+            "text": "Berapa rata-rata waktu delivery ke {location}?",
+            "category": "location",
+            "subcategory": "logistics",
+            "context_triggers": [
+                "location_detected",
+                "delivery",
+                "pengiriman"
+            ],
+            "follow_up_to": [
+                "loc_001"
+            ],
+            "priority": 6,
+            "template_vars": [
+                "location"
+            ]
+        },
+        {
+            "id": "ord_001",
+            "text": "Berapa jumlah pesanan yang delivered vs cancelled?",
+            "category": "operational",
+            "subcategory": "order_status",
+            "context_triggers": [
+                "pesanan",
+                "order",
+                "status",
+                "delivered"
+            ],
+            "follow_up_to": [],
+            "priority": 8,
+            "template_vars": []
+        },
+        {
+            "id": "ord_002",
+            "text": "Apa produk best-seller minggu ini?",
+            "category": "product",
+            "subcategory": "best_seller",
+            "context_triggers": [
+                "produk",
+                "best",
+                "seller",
+                "terlaris"
+            ],
+            "follow_up_to": [],
+            "priority": 9,
+            "template_vars": []
+        },
+        {
+            "id": "pay_001",
+            "text": "Berapa revenue dari payment method credit card vs boleto?",
+            "category": "financial",
+            "subcategory": "payment_analysis",
+            "context_triggers": [
+                "payment",
+                "pembayaran",
+                "credit",
+                "boleto"
+            ],
+            "follow_up_to": [],
+            "priority": 7,
+            "template_vars": []
+        },
+        {
+            "id": "cust_001",
+            "text": "Berapa jumlah customer baru vs returning customer?",
+            "category": "customer",
+            "subcategory": "retention",
+            "context_triggers": [
+                "customer",
+                "pelanggan",
+                "baru",
+                "returning"
+            ],
+            "follow_up_to": [],
+            "priority": 8,
+            "template_vars": []
+        },
+        {
+            "id": "cust_002",
+            "text": "Kota mana yang memiliki customer paling banyak?",
+            "category": "customer",
+            "subcategory": "geographic",
+            "context_triggers": [
+                "customer",
+                "kota",
+                "city",
+                "banyak"
+            ],
+            "follow_up_to": [],
+            "priority": 8,
+            "template_vars": []
+        },
+        {
+            "id": "cust_003",
+            "text": "Berapa rata-rata review score dari customer?",
+            "category": "satisfaction",
+            "subcategory": "metrics",
+            "context_triggers": [
+                "review",
+                "score",
+                "rating",
+                "customer"
+            ],
+            "follow_up_to": [],
+            "priority": 9,
+            "template_vars": []
+        },
+        {
+            "id": "cust_004",
+            "text": "Berapa persentase customer yang memberikan review 5 bintang?",
+            "category": "satisfaction",
+            "subcategory": "quality",
+            "context_triggers": [
+                "review",
+                "5",
+                "bintang",
+                "star"
+            ],
+            "follow_up_to": [
+                "cust_003"
+            ],
+            "priority": 7,
+            "template_vars": []
+        },
+        {
+            "id": "cust_005",
+            "text": "Siapa top 10 customer berdasarkan total spending?",
+            "category": "customer",
+            "subcategory": "segmentation",
+            "context_triggers": [
+                "customer",
+                "top",
+                "spending",
+                "vip"
+            ],
+            "follow_up_to": [],
+            "priority": 6,
+            "template_vars": []
+        },
+        {
+            "id": "ops_001",
+            "text": "Berapa rata-rata waktu delivery?",
+            "category": "operational",
+            "subcategory": "logistics",
+            "context_triggers": [
+                "delivery",
+                "pengiriman",
+                "waktu",
+                "rata-rata"
+            ],
+            "follow_up_to": [],
+            "priority": 8,
+            "template_vars": []
+        },
+        {
+            "id": "ops_002",
+            "text": "Berapa persentase pesanan yang terlambat?",
+            "category": "operational",
+            "subcategory": "sla",
+            "context_triggers": [
+                "terlambat",
+                "late",
+                "delay",
+                "pesanan"
+            ],
+            "follow_up_to": [
+                "ops_001"
+            ],
+            "priority": 8,
+            "template_vars": []
+        },
+        {
+            "id": "ops_003",
+            "text": "Seller mana yang paling cepat dalam pengiriman?",
+            "category": "seller",
+            "subcategory": "performance",
+            "context_triggers": [
+                "seller",
+                "cepat",
+                "pengiriman",
+                "delivery"
+            ],
+            "follow_up_to": [
+                "ops_001"
+            ],
+            "priority": 6,
+            "template_vars": []
+        },
+        {
+            "id": "ops_004",
+            "text": "Berapa biaya freight rata-rata per pesanan?",
+            "category": "operational",
+            "subcategory": "cost",
+            "context_triggers": [
+                "freight",
+                "biaya",
+                "ongkir",
+                "pengiriman"
+            ],
+            "follow_up_to": [],
+            "priority": 6,
+            "template_vars": []
+        },
+        {
+            "id": "prod_001",
+            "text": "Kategori produk mana yang paling sering dibeli?",
+            "category": "product",
+            "subcategory": "demand",
+            "context_triggers": [
+                "kategori",
+                "produk",
+                "sering",
+                "dibeli"
+            ],
+            "follow_up_to": [],
+            "priority": 9,
+            "template_vars": []
+        },
+        {
+            "id": "prod_002",
+            "text": "Produk apa yang memiliki review score tertinggi?",
+            "category": "product",
+            "subcategory": "quality",
+            "context_triggers": [
+                "produk",
+                "review",
+                "score",
+                "tertinggi"
+            ],
+            "follow_up_to": [
+                "prod_001"
+            ],
+            "priority": 7,
+            "template_vars": []
+        },
+        {
+            "id": "prod_003",
+            "text": "Kategori produk mana yang paling sering di-review?",
+            "category": "product",
+            "subcategory": "engagement",
+            "context_triggers": [
+                "kategori",
+                "review",
+                "sering"
+            ],
+            "follow_up_to": [
+                "cust_003"
+            ],
+            "priority": 6,
+            "template_vars": []
+        },
+        {
+            "id": "fin_001",
+            "text": "Berapa persentase customer yang bayar dengan installment?",
+            "category": "financial",
+            "subcategory": "payment_behavior",
+            "context_triggers": [
+                "installment",
+                "cicilan",
+                "payment",
+                "pembayaran"
+            ],
+            "follow_up_to": [],
+            "priority": 7,
+            "template_vars": []
+        },
+        {
+            "id": "fin_002",
+            "text": "Metode pembayaran apa yang paling populer?",
+            "category": "financial",
+            "subcategory": "payment_preference",
+            "context_triggers": [
+                "payment",
+                "pembayaran",
+                "metode",
+                "populer"
+            ],
+            "follow_up_to": [],
+            "priority": 8,
+            "template_vars": []
+        },
+        {
+            "id": "fin_003",
+            "text": "Berapa total revenue dari top 5 states?",
+            "category": "revenue",
+            "subcategory": "geographic",
+            "context_triggers": [
+                "revenue",
+                "state",
+                "top",
+                "geographic"
+            ],
+            "follow_up_to": [
+                "rev_001",
+                "rev_004"
+            ],
+            "priority": 7,
+            "template_vars": []
+        },
+        {
+            "id": "time_001",
+            "text": "Hari apa dalam seminggu yang paling ramai pesanan?",
+            "category": "temporal",
+            "subcategory": "weekly_pattern",
+            "context_triggers": [
+                "hari",
+                "minggu",
+                "ramai",
+                "pesanan"
+            ],
+            "follow_up_to": [],
+            "priority": 7,
+            "template_vars": []
+        },
+        {
+            "id": "time_002",
+            "text": "Bulan apa yang memiliki penjualan tertinggi tahun lalu?",
+            "category": "temporal",
+            "subcategory": "seasonal",
+            "context_triggers": [
+                "bulan",
+                "penjualan",
+                "tertinggi",
+                "tahun"
+            ],
+            "follow_up_to": [],
+            "priority": 7,
+            "template_vars": []
+        },
+        {
+            "id": "time_003",
+            "text": "Bagaimana tren pesanan per kuartal?",
+            "category": "temporal",
+            "subcategory": "quarterly",
+            "context_triggers": [
+                "kuartal",
+                "quarter",
+                "tren",
+                "pesanan"
+            ],
+            "follow_up_to": [],
+            "priority": 6,
+            "template_vars": []
+        },
+        {
+            "id": "sell_001",
+            "text": "Siapa top 10 seller berdasarkan jumlah penjualan?",
+            "category": "seller",
+            "subcategory": "ranking",
+            "context_triggers": [
+                "seller",
+                "top",
+                "penjualan",
+                "jumlah"
+            ],
+            "follow_up_to": [],
+            "priority": 8,
+            "template_vars": []
+        },
+        {
+            "id": "sell_002",
+            "text": "Seller dari kota mana yang paling banyak?",
+            "category": "seller",
+            "subcategory": "geographic",
+            "context_triggers": [
+                "seller",
+                "kota",
+                "banyak",
+                "city"
+            ],
+            "follow_up_to": [],
+            "priority": 6,
+            "template_vars": []
+        },
+        {
+            "id": "sell_003",
+            "text": "Seller mana yang memiliki review score tertinggi?",
+            "category": "seller",
+            "subcategory": "quality",
+            "context_triggers": [
+                "seller",
+                "review",
+                "score",
+                "tertinggi"
+            ],
+            "follow_up_to": [
+                "sell_001"
+            ],
+            "priority": 7,
+            "template_vars": []
+        },
+        {
+            "id": "sat_001",
+            "text": "Berapa persentase pesanan yang mendapat review negatif?",
+            "category": "satisfaction",
+            "subcategory": "quality_alert",
+            "context_triggers": [
+                "review",
+                "negatif",
+                "buruk",
+                "rendah"
+            ],
+            "follow_up_to": [
+                "cust_003"
+            ],
+            "priority": 8,
+            "template_vars": []
+        },
+        {
+            "id": "sat_002",
+            "text": "Kategori produk mana yang paling sering dapat review buruk?",
+            "category": "satisfaction",
+            "subcategory": "problem_identification",
+            "context_triggers": [
+                "review",
+                "buruk",
+                "negatif",
+                "kategori"
+            ],
+            "follow_up_to": [
+                "sat_001"
+            ],
+            "priority": 7,
+            "template_vars": []
+        },
+        {
+            "id": "sat_003",
+            "text": "Bagaimana tren customer satisfaction 3 bulan terakhir?",
+            "category": "satisfaction",
+            "subcategory": "trend",
+            "context_triggers": [
+                "satisfaction",
+                "tren",
+                "review",
+                "customer"
+            ],
+            "follow_up_to": [
+                "cust_003"
+            ],
+            "priority": 7,
+            "template_vars": []
+        },
+        {
+            "id": "sat_004",
+            "text": "Berapa persentase customer yang memberikan review?",
+            "category": "satisfaction",
+            "subcategory": "engagement",
+            "context_triggers": [
+                "review",
+                "persentase",
+                "customer",
+                "memberikan"
+            ],
+            "follow_up_to": [
+                "cust_003"
+            ],
+            "priority": 6,
+            "template_vars": []
+        },
+        {
+            "id": "gen_001",
+            "text": "Berapa jumlah pesanan hari ini?",
+            "category": "operational",
+            "subcategory": "daily_metrics",
+            "context_triggers": [
+                "pesanan",
+                "hari",
+                "today",
+                "jumlah"
+            ],
+            "follow_up_to": [],
+            "priority": 9,
+            "template_vars": []
+        },
+        {
+            "id": "gen_002",
+            "text": "Berapa growth rate penjualan vs bulan lalu?",
+            "category": "revenue",
+            "subcategory": "growth",
+            "context_triggers": [
+                "growth",
+                "pertumbuhan",
+                "bulan",
+                "lalu"
+            ],
+            "follow_up_to": [
+                "rev_001",
+                "rev_002"
+            ],
+            "priority": 8,
+            "template_vars": []
+        }
+    ]
+}
