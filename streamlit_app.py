@@ -480,7 +480,7 @@ if st.session_state.messages and len(st.session_state.messages) > 0:
                             st.session_state.selected_recommendation = rec["text"]
                             st.rerun()
                 
-                st.markdown("")  # Add spacing
+                st.markdown("")
     except Exception as e:
         # Silently fail if recommendation engine has issues
         print(f"Recommendation error: {e}")
