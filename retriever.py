@@ -5,7 +5,7 @@ import logging
 from dotenv import load_dotenv
 from openai import OpenAI
 
-# optional: requests may not be in venv by default — typically installed
+# requests may not be in venv by default (typically installed)
 import requests
 
 # Setup logging
@@ -33,11 +33,9 @@ def get_embedding(text: str):
         model=EMBED_MODEL,
         input=text
     )
-    # Defensive: different sdk shapes, but usually resp.data[0].embedding
     try:
         return resp.data[0].embedding
     except Exception:
-        # try alternative dict-style
         return resp["data"][0]["embedding"]
 
 
@@ -49,7 +47,6 @@ def _search_via_http(vector, top_k: int = 5):
     url = QDRANT_URL.rstrip("/") + f"/collections/{QDRANT_COLLECTION}/points/search"
     headers = {"Content-Type": "application/json"}
     if QDRANT_API_KEY:
-        # Qdrant cloud / service often expects 'api-key' header
         headers["api-key"] = QDRANT_API_KEY
 
     body = {
@@ -137,7 +134,7 @@ def retrieve(query: str, top_k: int = 5, qdrant_client=None):
     """
     qvec = get_embedding(query)
 
-    # Preferred: use HTTP REST endpoint (most robust)
+    # Use HTTP REST endpoint
     try:
         logger.info("Searching Qdrant via HTTP REST endpoint...")
         hits = _search_via_http(qvec, top_k=top_k)
