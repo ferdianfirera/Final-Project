@@ -347,10 +347,6 @@ class QueryRecommender:
         if not history:
             return 0
         
-        # Check if this question is a common follow-up to recent questions
-        # For now, use simple heuristic based on follow_up_to field
-        # In production, this could use ML-based pattern mining
-        
         score = 0
         recent_categories = []
         
@@ -377,9 +373,9 @@ class QueryRecommender:
                 user_text = msg.get("content", "").lower()
                 # Simple similarity check
                 if self._text_similarity(question_text, user_text) > 0.6:
-                    return 0  # Recently asked, score 0
+                    return 0
         
-        return 100  # Not recently asked, full score
+        return 100
     
     def _text_similarity(self, text1: str, text2: str) -> float:
         """Calculate simple text similarity (Jaccard similarity)."""
@@ -411,7 +407,7 @@ class QueryRecommender:
             text = text.replace("{category}", context["category"])
         
         # If template vars not substituted, return original or skip
-        # For now, if location var exists but no context, use generic placeholder
+        # If location var exists but no context, use generic placeholder
         if "{location}" in text:
             text = text.replace("{location}", "lokasi ini")
         
