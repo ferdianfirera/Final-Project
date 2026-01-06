@@ -10,7 +10,7 @@ load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 CHAT_MODEL = os.getenv("OPENAI_CHAT_MODEL", "gpt-4o-mini")
-SQLITE_FILE = os.getenv("SQLITE_FILE", "olist.db") # Changed default to olist.db based on context
+SQLITE_FILE = os.getenv("SQLITE_FILE", "olist.db")
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -259,8 +259,8 @@ def sql_agent_query(question: str, chat_history: list = None, top_k: int = 3):
         history_str += "=" * 60 + "\n"
         recent = chat_history[-10:]
         
-        # We need to scan history to find the LATEST active filters
-        # We'll scan in reverse order (newest first) to find the most recent location context
+        # Scan history to find the LATEST active filters
+        # Scan in reverse order (newest first) to find the most recent location context
         latest_city = None
         latest_state = None
         
@@ -304,7 +304,7 @@ def sql_agent_query(question: str, chat_history: list = None, top_k: int = 3):
         history_str += "=" * 60 + "\n"
 
     # FORCE INJECT CONTEXT
-    # We wrap the user question to make it impossible to ignore
+    # Wrap the user question to make it impossible to ignore
     if active_filters:
         context_block = "\n".join([f"- {f}" for f in active_filters])
         
